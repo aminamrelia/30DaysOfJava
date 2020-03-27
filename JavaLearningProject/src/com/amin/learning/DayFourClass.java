@@ -7,15 +7,16 @@ import java.util.ArrayList;
 import java.io.File;
 import java.io.FileNotFoundException;
 
-public class DayThreeClass {
-//Queue
+public class DayFourClass {
+//Stack
 	public static void main(String[] args) throws FileNotFoundException {
 		LinkedList<String> names = new LinkedList<String>();
-		names.add("Amin");
-		names.add("Irfan");
-		names.add("Mustufa");
+		names.push("Amin");
+		names.push("Irfan");
+		names.push("Mustufa");
+
+		System.out.println(names.pop());
 		System.out.println(names.remove());
-		System.out.println(names.remove());
-		System.out.println(names.remove());
+		System.out.println(names.removeFirst());
 	}
 }
