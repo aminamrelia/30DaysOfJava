@@ -9,36 +9,24 @@ import java.util.Iterator;
 import java.io.File;
 import java.io.FileNotFoundException;
 
-public class DaySevenClass {
+public class DayEightClass {
 //Stack
 	public static void main(String[] args) throws FileNotFoundException {
-		LinkedList<String> names = new LinkedList<String>();
-		names.push("Amin");
-		names.push("Irfan");
-		names.push("Mustufa");
-//Stack
-	/*	
-		Iterator<String> it = names.iterator();
-        System.out.println(it.next());
-		System.out.println(it.next());
-		System.out.println(it.next());
 
-		while (it.hasNext()) {
-			System.out.println(it.next());
-		}
-		for (String s : names) {
-			System.out.println(s);
-		}*/
-		
-		// ListIterator
-		ListIterator<String> it = names.listIterator();
-			it.next();
-			it.next();
-			it.add("Zidane");			
-			for (String s : names) {
-				System.out.println(s);
+		int[][] data = { { 4, 6, 3, 10 },
+				         { 4, 2, 40, 1, 3, 2, 30 }, 
+				         { 5, 34, 1, 43 } };
+		System.out.println("Row  " + data.length);
+		System.out.println("Column " + data[0].length);
+		System.out.println();
+		System.out.println(data[1][2]);
+		System.out.println();
+		for (int i = 0; i < data.length; i++) {
+			for (int j = 0; j < data[i].length; j++) { // data[i] to find column
+			System.out.print(data[i][j]+ " ");
 			}
-
+			System.out.println();
+		}
 
 	}
 }
