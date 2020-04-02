@@ -10,11 +10,9 @@ import java.util.Iterator;
 import java.io.File;
 import java.io.FileNotFoundException;
 
-public class DayNineClass {
+public class DayTwelveClass {
 
-	static int[][] maze = { { 2, 1, 1, 1, 0, 1, 0 },
-							{ 1, 0, 1, 1, 0, 0, 1 ,1},
-							{ 0, 0, 0, 1, 1, 1, 1 } };
+	static int[][] maze = { { 2, 1, 1, 1, 0, 1, 0 }, { 1, 0, 1, 1, 0, 0, 1, 1 }, { 0, 0, 0, 1, 1, 1, 1 } };
 	// 0 = wall
 	// 1 = path
 	// 2 = Destination
@@ -22,9 +20,15 @@ public class DayNineClass {
 	static LinkedList<Position> path = new LinkedList<Position>();
 
 	public static void main(String[] args) {
-		Position p = new Position(2, 6);
-		// p.x=3; // column
-		// p.y=0; // row
+		if (solveMaze(new Position(2, 6))) {
+			System.out.println("You Won!");
+		}
+		else {System.out.println("no Path");}
+		;
+
+	}
+
+	private static Boolean solveMaze(Position p) {
 		path.push(p);
 
 		while (true) {
@@ -35,8 +39,8 @@ public class DayNineClass {
 				// down
 				if (maze[y + 1][x] == 2) {
 
-					System.out.println(" Moved Down .. You won!");
-					return;
+					System.out.println(" Moved Down.");
+					return true;
 				} else if (maze[y + 1][x] == 1) {
 					System.out.println(" Moved Down");
 					path.push(new Position(y + 1, x));
@@ -48,8 +52,8 @@ public class DayNineClass {
 			if (isValid(y, x - 1)) {
 				if (maze[y][x - 1] == 2) {
 
-					System.out.println(" Moved Left .. You won!");
-					return;
+					System.out.println(" Moved Left.");
+					return true;
 				} else if (maze[y][x - 1] == 1) {
 					System.out.println(" Moved Left");
 					path.push(new Position(y, x - 1));
@@ -60,8 +64,8 @@ public class DayNineClass {
 			if (isValid(y - 1, x)) {
 				if (maze[y - 1][x] == 2) {
 
-					System.out.println(" Moved Up .. You won!");
-					return;
+					System.out.println(" Moved Up.");
+					return true;
 				} else if (maze[y - 1][x] == 1) {
 					System.out.println(" Moved up");
 					path.push(new Position(y - 1, x));
@@ -72,8 +76,8 @@ public class DayNineClass {
 			if (isValid(y, x + 1)) {
 				if (maze[y][x + 1] == 2) {
 
-					System.out.println(" Moved Right .. You won!");
-					return;
+					System.out.println(" Moved Right.");
+					return true;
 				} else if (maze[y][x + 1] == 1) {
 					System.out.println(" Moved Right");
 					path.push(new Position(y, x + 1));
@@ -85,11 +89,11 @@ public class DayNineClass {
 			System.out.println(" Moved Back");
 			if (path.size() <= 0) {
 
-				System.out.println("No Path");
-				return;
+				return false;
 			}
 
 		}
+
 	}
 
 	public static boolean isValid(int y, int x) {

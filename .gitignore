@@ -25,6 +25,16 @@ buildNumber.properties
 .mvn/wrapper/maven-wrapper.jar
 
 ##############################
+## JDeveloper
+##############################
+.data/
+temp/
+classes/
+deploy/
+javadoc/
+cwallet.sso.lck
+
+##############################
 ## Gradle
 ##############################
 bin/
